@@ -1,25 +1,27 @@
 import { useState } from 'react';
-import HS from './Message.module.css';
+import HS from '../../App.module.css';
 
 const Message = () => {
     const [message, setMessage] = useState('');
 
-    const changeInput = (e:React.FormEvent<HTMLInputElement>) => {
+    const changeInput = (e: React.FormEvent<HTMLTextAreaElement>) => {
         setMessage(e.currentTarget.value)
         console.log(message);
     }
 
     return (
         <div className={HS.messageContainer}>
-            <label htmlFor="email"> Сообщение
-                <input 
-                id='message' 
-                onInput={changeInput} 
-                className={HS.inputMessage} 
-                type="message" 
-                value={message} />
-                <span className={HS.error}></span>
-            </label>
+            <label htmlFor="email"> Сообщение</label>
+            <textarea
+                id='message'
+                onInput={changeInput}
+                className={HS.inputMessage}
+                value={message}
+                rows= {3}
+                maxLength= {300}
+ />
+            <span className={HS.error}></span>
+
         </div>
     );
 };
