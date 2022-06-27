@@ -6,10 +6,10 @@ const Name = () => {
     const [nameError, setNameError] = useState('')
 
     const changeInput = (e: React.FormEvent<HTMLInputElement>) => {
-        const nameData = e.currentTarget.value.toUpperCase().replace(/ +/g," ");
+        const nameData = e.currentTarget.value.toUpperCase().replace(/ +/g, " ");
         setName(nameData);
 
-        const nameArr = e.currentTarget.value.toUpperCase().replace(/ +/g," ").split(' ');
+        const nameArr = e.currentTarget.value.toUpperCase().replace(/ +/g, " ").split(' ');
         console.log(nameArr);
 
         setNameError(nameArr.length !== 2
@@ -19,21 +19,23 @@ const Name = () => {
                 : nameArr[0].length > 30 || +nameArr[1].length > 30
                     ? 'Имя и фамилия состоят не , более чем из тридцати букв'
                     : /[A-Z]/i.test(nameData)
-                        ?  ''
-                        : 'Только латинские буквы' );
+                        ? ''
+                        : 'Только латинские буквы');
     }
 
     return (
         <div className={HS.formItem}>
             <label htmlFor="name"> Имя и фамилия</label>
-            <input
-                id='name'
-                onChange={changeInput}
-                className={HS.inputName}
-                type="text"
-                value={name} />
-            <span className={HS.error}>{nameError}</span>
-
+            <div className={HS.inputContainer}>
+                <input
+                    name='name'
+                    id='name'
+                    onChange={changeInput}
+                    className={HS.inputName}
+                    type="text"
+                    value={name} />
+                <span className={HS.error}>{nameError}</span>
+            </div>
         </div>
     );
 }

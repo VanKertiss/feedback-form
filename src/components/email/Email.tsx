@@ -10,21 +10,25 @@ const Email = () => {
     const changeInput = (e: React.FormEvent<HTMLInputElement>) => {
         setEmail(e.currentTarget.value);
         console.log(email);
-        seEmailError(reg.test(e.currentTarget.value) == false 
-        ? 'Введите корректный e-mail' 
-        : '')
+        seEmailError(reg.test(e.currentTarget.value) === false
+            ? 'Введите корректный e-mail'
+            : '')
     }
 
     return (
         <div className={HS.formItem}>
             <label htmlFor="email"> Электронная почта</label>
-            <input
-                id='email'
-                onInput={changeInput}
-                className={HS.inputEmail}
-                type="email"
-                value={email} />
-            <span className={HS.error}>{emailError}</span>
+            <div className={HS.inputContainer}>
+                <input
+                    name='email'
+                    id='email'
+                    onInput={changeInput}
+                    className={HS.inputEmail}
+                    type="email"
+                    value={email} />
+                <span className={HS.error}>{emailError}</span>
+            </div>
+
 
         </div>
     );

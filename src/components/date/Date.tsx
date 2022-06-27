@@ -12,13 +12,17 @@ const Date = () => {
     return (
         <div className={HS.formItem}>
             <label htmlFor="date"> Дата рождения</label>
-            <input
-                id='date'
-                onInput={changeInput}
-                className={HS.inputDate}
-                type="date"
-                value={date} />
-            <span className={HS.error}></span>
+            <div className={HS.inputContainer}>
+                <input
+                    name='date'
+                    id='date'
+                    onInput={changeInput}
+                    className={HS.inputDate}
+                    type="date"
+                    value={date} />
+                <span className={HS.error}></span>
+            </div>
+
 
         </div>
     );
