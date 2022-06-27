@@ -8,12 +8,14 @@ import Phone from './components/phone/Phone';
 function App() {
   return (
     <div className={HS.container}>
+      <h1>feedback form</h1>
       <form className={HS.formContainer} action="" method="post">
         <Name />
         <Date />
         <Email />
         <Phone />
         <Message />
+        <input className={HS.submitButton} type="button" value="Отправить данные" />
       </form>
     </div>
   );

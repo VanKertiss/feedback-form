@@ -1,25 +1,25 @@
 import { useState } from 'react';
-import HS from './Phone.module.css';
+import HS from '../../App.module.css';
 
 const Phone = () => {
     const [phone, setPhone] = useState('');
 
-    const changeInput = (e:React.FormEvent<HTMLInputElement>) => {
+    const changeInput = (e: React.FormEvent<HTMLInputElement>) => {
         setPhone(e.currentTarget.value)
         console.log(phone);
     }
 
     return (
-        <div className={HS.phoneContainer}>
-            <label htmlFor="phone"> Телефон
-                <input 
-                id='phone' 
-                onInput={changeInput} 
-                className={HS.inputPhone} 
-                type="phone" 
+        <div className={HS.formItem}>
+            <label htmlFor="phone"> Телефон</label>
+            <input
+                id='phone'
+                onInput={changeInput}
+                className={HS.inputPhone}
+                type="tel"
                 value={phone} />
-                <span className={HS.error}></span>
-            </label>
+            <span className={HS.error}></span>
+
         </div>
     );
 };
