@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import HS from '../../App.module.css';
+import { useDispatch } from 'react-redux';
+import { addDate } from '../../store/reducer/inputDataSlice';
 
 const Date = () => {
     const [date, setDate] = useState('');
+    const dispatch = useDispatch();
 
     const changeInput = (e: React.FormEvent<HTMLInputElement>) => {
         setDate(e.currentTarget.value);
-        console.log(date);
+    }
+
+    const addInfo = () => {
+        dispatch(addDate({date, dateError: ''}))
     }
 
     return (
@@ -17,13 +23,12 @@ const Date = () => {
                     name='date'
                     id='date'
                     onInput={changeInput}
+                    onBlur={addInfo}
                     className={HS.inputDate}
                     type="date"
                     value={date} />
                 <span className={HS.error}></span>
             </div>
-
-
         </div>
     );
 }
