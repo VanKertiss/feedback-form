@@ -12,13 +12,17 @@ const Phone = () => {
     return (
         <div className={HS.formItem}>
             <label htmlFor="phone"> Телефон</label>
-            <input
-                id='phone'
-                onInput={changeInput}
-                className={HS.inputPhone}
-                type="tel"
-                value={phone} />
-            <span className={HS.error}></span>
+            <div className={HS.inputContainer}>
+                <input
+                    name='phone'
+                    id='phone'
+                    onInput={changeInput}
+                    className={HS.inputPhone}
+                    type="tel"
+                    value={phone} />
+                <span className={HS.error}></span>
+            </div>
+
 
         </div>
     );

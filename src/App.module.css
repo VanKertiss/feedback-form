@@ -48,6 +48,13 @@
   width: 500px;
 }
 
+.inputContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .inputMessage{
   margin-top: 15px;
   box-sizing: border-box;
