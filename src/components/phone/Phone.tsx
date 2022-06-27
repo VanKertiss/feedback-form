@@ -25,6 +25,7 @@ const Phone = () => {
                     onInput={changeInput}
                     onBlur={addInfo}
                     className={HS.inputPhone}
+                    placeholder='+7(__)___-__-__'
                     type="tel"
                     value={phone} />
                 <span className={HS.error}></span>
