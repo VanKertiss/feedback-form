@@ -6,7 +6,8 @@ const Name = () => {
     const [nameError, setNameError] = useState('')
 
     const changeInput = (e: React.FormEvent<HTMLInputElement>) => {
-        setName(e.currentTarget.value.toUpperCase().replace(/ +/g," "));
+        const nameData = e.currentTarget.value.toUpperCase().replace(/ +/g," ");
+        setName(nameData);
 
         const nameArr = e.currentTarget.value.toUpperCase().replace(/ +/g," ").split(' ');
         console.log(nameArr);
@@ -17,9 +18,9 @@ const Name = () => {
                 ? 'Имя и фамилия состоят не менее чем из трех букв'
                 : nameArr[0].length > 30 || +nameArr[1].length > 30
                     ? 'Имя и фамилия состоят не , более чем из тридцати букв'
-                    : !/[A-Z]/i.test(e.currentTarget.value.toUpperCase())
-                        ? 'Только латинские буквы' 
-                        : '' );
+                    : /[A-Z]/i.test(nameData)
+                        ?  ''
+                        : 'Только латинские буквы' );
     }
 
     return (
